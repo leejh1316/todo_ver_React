@@ -1,0 +1,254 @@
+.App {
+  text-align: center;
+}
+.container {
+  position: relative;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  background-color: #d8dff6;
+  justify-content: center;
+  align-items: center;
+}
+.mainLayout {
+  position: relative;
+  max-width: 640px;
+  max-height: 800px;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(225deg, rgb(100, 181, 238), #5c76e5);
+  /* border-radius: 20px; */
+  box-shadow: #1e2550 0px 0px 50px;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+/* 여기서부터 슬라이드 */
+.themaSlideWrap {
+  position: relative;
+  width: 100%;
+  max-width: 627px;
+  max-height: 400px;
+  height: 100%;
+  top: 46%;
+  margin: auto;
+  border-radius: 20px;
+  /* overflow: hidden visible; */
+  text-align: left;
+  cursor: pointer;
+  user-select: none;
+}
+.slideWorkWrap {
+  position: absolute;
+  display: flex;
+  gap: 10px;
+  flex-wrap: nowrap;
+  border-radius: 20px;
+  width: 100%;
+  height: 100%;
+  max-width: 627px;
+  max-height: 400px;
+  /* 여기 오버플로 바꾸면 랩퍼 크기 확인가능 */
+}
+.themaItem {
+  position: absolute;
+  width: 100%;
+  max-width: 250px;
+  height: 100%;
+  max-height: 348px;
+  top: 50%;
+  transform: translate(0, -50%);
+  flex-shrink: 0;
+  border-radius: 8px;
+  background-color: whitesmoke;
+  box-shadow: rgb(59, 59, 59) 0px 0px 10px;
+  transition-property: left, transform, top, width, height, max-width,
+    max-height, border-radius, opacity;
+  transition-delay: 0.2s;
+  transition-duration: 1.6s;
+}
+.nowThema {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* transition-property: left, transform, top, width, height, max-width,
+    max-height, border-radius;
+  transition-delay: 0.2s;
+  transition-duration: 1.3s; */
+}
+
+.nextThema {
+  left: 75%;
+  transform: translate(25%, -50%);
+}
+.prevThema {
+  left: 25%;
+  transform: translate(-125%, -50%);
+}
+.nextReadyThema {
+  left: 100%;
+  transform: translate(100%, -50%);
+}
+.prevReadyThema {
+  left: 0%;
+  transform: translate(-200%, -50%);
+}
+.nextSlideMove {
+  animation: nextSlideCenterMove 1.3s;
+  animation-fill-mode: both;
+  animation-delay: 0.2s;
+}
+/* 슬라이드 여기까지 */
+
+.titleName {
+  position: absolute;
+  color: white;
+  width: 100px;
+  font-size: 16px;
+  left: 50%;
+  transform: translate(-50%, 60%);
+  font-family: "Open Sans", sans-serif;
+}
+/* 테마 추가 시작*/
+.addThemaContainer {
+  position: absolute;
+  top: 50%;
+  transform: translate(-98%, -50%);
+  border-top-right-radius: 1em;
+  border-bottom-right-radius: 1em;
+  max-height: 700px;
+  max-width: 550px;
+  width: 100%;
+  height: 100%;
+  background-color: aliceblue;
+  box-shadow: black 0px 0px 10px;
+  z-index: 3;
+  transition: ease 1s transform;
+}
+.addArrow {
+  position: absolute;
+  top: 50%;
+  right: -30px;
+  transform: translate(0, -50%);
+  width: 60px;
+  height: 60px;
+  border-radius: 2em;
+  background-color: #ffffff;
+  box-shadow: black 0px 0px 10px;
+  z-index: 4;
+  cursor: pointer;
+}
+.arrowIcon1 {
+  position: absolute;
+  background-color: black;
+  width: 25px;
+  height: 5px;
+  border-radius: 5px;
+  top: 40%;
+  left: 60%;
+  transform: translate(-50%, -50%) rotate(35deg);
+  transition: ease 1s transform;
+  z-index: -50;
+}
+.arrowIcon2 {
+  position: absolute;
+  background-color: black;
+  width: 25px;
+  height: 5px;
+  border-radius: 5px;
+  top: 60%;
+  left: 60%;
+  transform: translate(-50%, -50%) rotate(-35deg);
+  transition: ease 1s transform;
+  z-index: -50;
+}
+.addThemaWrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: left;
+}
+.addInputThema {
+  position: absolute;
+  display: inline-block;
+  max-width: 250px;
+  width: 100%;
+  height: 40px;
+  left: 10px;
+  top: 20px;
+  font-size: 24px;
+  background-color: transparent;
+  border: none;
+  border-bottom: rgb(192, 192, 192) solid 2px;
+  color: #1e2550;
+  outline: none;
+  font-family: "nanumsquare";
+  font-weight: 600;
+}
+.styleDay {
+  position: absolute;
+  right: 11px;
+  top: 18px;
+  text-align: right;
+  color: #1e2550;
+  border-bottom: rgb(192, 192, 192) solid 2px;
+  font-family: "Pretendard-Regular";
+}
+.toDay {
+  font-size: 22px;
+  font-weight: 300;
+}
+.toDate {
+  font-size: 15px;
+  font-weight: 200;
+}
+.selCalendar {
+  position: absolute;
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+  right: 12px;
+  top: 60px;
+  cursor: pointer;
+  background-image: url("../public/calendar_icon.png");
+  background-size: cover;
+  border: none;
+  background-color: transparent;
+}
+#addDate {
+  width: 0;
+  height: 0;
+  border: none;
+}
+input[type="date"]::-webkit-datetime-edit-text {
+  -webkit-appearance: none;
+  display: none;
+}
+input[type="date"]::-webkit-datetime-edit-month-field {
+  -webkit-appearance: none;
+  display: none;
+}
+input[type="date"]::-webkit-datetime-edit-day-field {
+  -webkit-appearance: none;
+  display: none;
+}
+input[type="date"]::-webkit-datetime-edit-year-field {
+  -webkit-appearance: none;
+  display: none;
+}
+
+@keyframes nextSlideCenterMove {
+  from {
+  }
+  to {
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&family=Source+Code+Pro:wght@700&display=swap");
+@import url("https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css");
+@font-face {
+  font-family: "Pretendard-Regular";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
+    format("woff");
+  font-style: normal;
+}
